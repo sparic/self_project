@@ -112,8 +112,8 @@ public class Test {
         return result;
     }
 
-    public static <E> Set<E> union(Set<? extends E> s1, Set<? extends E> s2){
-        s1.add(s2);
-    }
+//    public static <E> Set<E> union(Set<? extends E> s1, Set<? extends E> s2){
+//        s1.add(s2);
+//    }
 
 }
