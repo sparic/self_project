@@ -5,7 +5,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Created by sparic on 2018/1/2.
+ * Created by ray on 2018/1/2.
  */
 public class DaemonThreadPoolExecutor extends ThreadPoolExecutor {
 
