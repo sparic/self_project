@@ -1,7 +1,7 @@
 //package thinking_in_java.concurrency;
 //
-//import java.util.concurrent.locks.Lock;
-//import java.util.concurrent.locks.ReentrantLock;
+//import java.util.concurrency.locks.Lock;
+//import java.util.concurrency.locks.ReentrantLock;
 //
 ///**
 // * Created by sparic on 2018/1/23.

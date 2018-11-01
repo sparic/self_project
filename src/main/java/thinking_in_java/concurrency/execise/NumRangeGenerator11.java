@@ -77,7 +77,7 @@ public class NumRangeGenerator11 extends NumRangeGenerator {
 /** Synchronized version that runs without error:
 *
 * import java.util.*;
-* import java.util.concurrent.*;
+* import java.util.concurrency.*;
 *
 * public class SynchronizedNumRangeGenerator11 extends NumRangeGenerator {
 *	private int min = 0;
