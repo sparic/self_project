@@ -1,5 +1,6 @@
 package test;
 
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
@@ -8,6 +9,8 @@ import java.util.Set;
  * Created by ray.fu on 2017/12/25.
  */
 public class MyTest {
+
+    private long abc;
 
     public static int[] getArr(int n) {
         Set<Integer> tempSet = new HashSet<Integer>();
@@ -46,5 +49,6 @@ public class MyTest {
         for (int i = 0; i < arr.length; i++) {
             System.out.println(arr[i]);
         }
+
     }
 }

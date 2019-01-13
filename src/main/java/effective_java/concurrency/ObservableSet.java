@@ -4,6 +4,7 @@ import com.mchange.util.AssertException;
 import effective_java.ForwardingSet;
 
 import java.util.*;
+import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -17,8 +18,11 @@ public class ObservableSet<E> extends ForwardingSet<E> {
         super(s);
     }
 
+//    private final List<SetObserver<E>> observers =
+//            new ArrayList<SetObserver<E>>();
+
     private final List<SetObserver<E>> observers =
-            new ArrayList<SetObserver<E>>();
+            new CopyOnWriteArrayList<SetObserver<E>>();
 
     public void addObserver(SetObserver<E> observer) {
         synchronized (observers) {
@@ -26,10 +30,14 @@ public class ObservableSet<E> extends ForwardingSet<E> {
         }
     }
 
+//    public boolean removeObserver(SetObserver<E> observer) {
+//        synchronized (observers) {
+//            return observers.remove(observer);
+//        }
+//    }
+
     public boolean removeObserver(SetObserver<E> observer) {
-        synchronized (observers) {
-            return observers.remove(observer);
-        }
+        return observers.remove(observer);
     }
 
     private void notifyElementAdded(E element) {
@@ -38,11 +46,15 @@ public class ObservableSet<E> extends ForwardingSet<E> {
 //                observer.added(this, element);
 //            }
 //        }
-        List<SetObserver<E>> snapShot = null;
-        synchronized (observers) {
-            snapShot = new ArrayList<SetObserver<E>>(observers);
-        }
-        for(SetObserver<E> observer : snapShot) {
+
+//        List<SetObserver<E>> snapShot = null;
+//        synchronized (observers) {
+//            snapShot = new ArrayList<SetObserver<E>>(observers);
+//        }
+//        for(SetObserver<E> observer : snapShot) {
+//            observer.added(this, element);
+//        }
+        for(SetObserver<E> observer : observers) {
             observer.added(this, element);
         }
     }
